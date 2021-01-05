@@ -1,0 +1,19 @@
+server:
+  port: 8085
+
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: b-1.kafka-qa.uw0h46.c5.kafka.us-east-1.amazonaws.com:9092
+          autoAddPartitions: true
+      bindings:
+        notification-events-output:
+          destination: notification_events
+          contentType: application/json
+          partitionCount: 3
+        notification-whatsapp-events-output:
+          destination: notification_whatsapp-events
+          contentType: application/json
+          partitionCount: 3
